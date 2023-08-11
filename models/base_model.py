@@ -13,7 +13,7 @@ class BaseModel():
     """
     def __init__(self, *args, **kwargs):
         """
-        doc
+        instantiating new obj
         """
         if kwargs:
             for key, value in kwargs.items():
@@ -30,20 +30,23 @@ class BaseModel():
 
     def __str__(self):
         """
-        doc
+        string representation of obj
         """
         return (f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}")
 
     def save(self):
         """
         update the updated_at attribute
-        to the last time it was saved
+        to the last time the obj was saved
         """
         self.updated_at = datetime.now().isoformat()
 
     def to_dict(self):
         """
-        doc
+        edited default dictionary
+        representation of object
+        Returns: dict. attribute as
+        key and attribut3 values as value
         """
         my_dict = {}
         for key, value in self.__dict__.items():

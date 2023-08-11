@@ -16,13 +16,13 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, arg):
         """
-        doc
+        exiting the console
         """
         return True
 
     def do_EOF(self, arg):
         """
-        doc
+        keyboard interuption
         """
         return True
 
@@ -34,7 +34,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         """
-        doc
+        create a new instance of a class
+        ex: create Base model
         """
         if len(arg) == 0:
             print("** class name missing **")
@@ -49,7 +50,12 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """
-        doc
+        show all objects created if used with no
+        parameter
+        ex: all
+        or
+        all BaseModel
+        to show all BaseModel objects
         """
         my_list = []
         args = arg.split()
@@ -69,7 +75,11 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """
-        doc
+        show a particular object
+        by passing as parameter the class
+        and the object id
+        ex:
+        show BaseModel 78377hd99yhd
         """
         args = arg.split()
         if len(args) >= 2:
@@ -91,7 +101,10 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, arg):
         """
-        doc
+        deleting an object by passing
+        the object's class and id
+        ex:
+        destroy BaseModel 8uu3uie90u39
         """
         args = arg.split()
         if len(args) >= 2:
@@ -113,7 +126,11 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """
-        doc
+        update the attribute of an object
+        passing as parameters the class,
+        the id, the attribut and value
+        ex:
+        update BaseModel 89398838 email "888@.com"
         """
         args = arg.split()
         if len(args) >= 4:
