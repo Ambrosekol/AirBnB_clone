@@ -16,7 +16,11 @@ class FileStorage():
         """
         doc
         """
-        return FileStorage.__objects
+        from models.base_model import BaseModel
+        my_dict = {}
+        for k, v in FileStorage.__objects.items():
+            my_dict[k] = eval(k.split(".")[0])(**v)
+        return my_dict
 
     def save(self):
         """
