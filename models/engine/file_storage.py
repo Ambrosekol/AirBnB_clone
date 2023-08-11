@@ -4,6 +4,7 @@ doc
 """
 import json
 
+
 class FileStorage():
     """
     doc
@@ -21,19 +22,21 @@ class FileStorage():
         """
         doc
         """
-        with open(FileStorage.__file_path, "a") as f:
+        with open(FileStorage.__file_path, "w") as f:
             json.dump(FileStorage.__objects, f)
 
     def new(self, obj):
         """
         doc
         """
-        FileStorage.__objects[obj.__class__.__name__ + "." + obj.id] = obj.to_dict()
+        class_name = obj.__class__.__name__
+        FileStorage.__objects[class_name + "." + obj.id] = obj.to_dict()
 
     def reload(self):
         """
         doc
         """
+        print("called")
         try:
             with open(FileStorage.__file_path, "r") as f:
                 FileStorage.__objects = json.load(f)

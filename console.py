@@ -3,13 +3,16 @@
 doc
 """
 import cmd
+from models.base_model import BaseModel
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
     """
     doc
     """
-    prompt = "(hbnb)"
+    prompt = "(hbnb) "
+    classes = ("BaseModel",)
 
     def do_quit(self, arg):
         """

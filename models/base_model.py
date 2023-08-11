@@ -6,6 +6,7 @@ import uuid
 from datetime import datetime
 from . import storage
 
+
 class BaseModel():
     """
     class BaseModel
@@ -15,7 +16,7 @@ class BaseModel():
         doc
         """
         if kwargs:
-            for  key, value in kwargs.items():
+            for key, value in kwargs.items():
                 if key == "__class__":
                     continue
                 if key == "created_at" or key == "updated_at":
@@ -39,8 +40,7 @@ class BaseModel():
         to the last time it was saved
         """
         self.updated_at = datetime.now().isoformat()
-        storage.save()
-        
+
     def to_dict(self):
         """
         doc
@@ -50,4 +50,3 @@ class BaseModel():
             my_dict[key] = value
         my_dict["__class__"] = self.__class__.__name__
         return my_dict
-
