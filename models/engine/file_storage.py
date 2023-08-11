@@ -4,6 +4,7 @@ doc
 """
 import json
 
+
 class FileStorage():
     """
     doc
@@ -28,7 +29,8 @@ class FileStorage():
         """
         doc
         """
-        FileStorage.__objects[obj.__class__.__name__ + "." + obj.id] = obj.to_dict()
+        class_name = obj.__class__.__name__
+        FileStorage.__objects[class_name + "." + obj.id] = obj.to_dict()
 
     def reload(self):
         """
