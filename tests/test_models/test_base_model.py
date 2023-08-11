@@ -4,7 +4,6 @@ tests
 """
 
 import unittest
-import json
 import uuid as generate_id
 from models.base_model import BaseModel
 from datetime import datetime
@@ -44,11 +43,11 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save_method(self):
         new_instance = BaseModel()
-        time_created = new_instance.updated_at[:20]
-        self.assertEqual(time_created, str(datetime.now().isoformat())[:20])
+        time_created = new_instance.updated_at[:21]
+        self.assertEqual(time_created, str(datetime.now().isoformat())[:21])
         new_instance.save()
-        update_time = new_instance.updated_at[:20]
-        self.assertEqual(update_time, str(datetime.now().isoformat())[:20])
+        update_time = new_instance.updated_at[:21]
+        self.assertEqual(update_time, str(datetime.now().isoformat())[:21])
 
     def test_init_with_kwargs(self):
         test_uuid = "{}".format(generate_id.uuid4())
