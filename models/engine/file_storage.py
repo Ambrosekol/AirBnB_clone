@@ -22,7 +22,7 @@ class FileStorage():
         """
         doc
         """
-        with open(FileStorage.__file_path, "a") as f:
+        with open(FileStorage.__file_path, "w") as f:
             json.dump(FileStorage.__objects, f)
 
     def new(self, obj):
@@ -36,6 +36,7 @@ class FileStorage():
         """
         doc
         """
+        print("called")
         try:
             with open(FileStorage.__file_path, "r") as f:
                 FileStorage.__objects = json.load(f)
