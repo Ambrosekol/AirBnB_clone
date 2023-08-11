@@ -38,8 +38,8 @@ class BaseModel():
         update the updated_at attribute
         to the last time it was saved
         """
-        storage.save()
         self.updated_at = datetime.now().isoformat()
+        storage.save()
         
     def to_dict(self):
         """
