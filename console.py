@@ -58,13 +58,13 @@ class HBNBCommand(cmd.Cmd):
                 key = args[0]
                 for k, v in storage.all().items():
                     if k.startswith(key):
-                        my_list.append(v)
+                        my_list.append(str(v))
                 print(my_list)
             else:
                 print("** class doesn't exist **")
         elif len(args) == 0:
             for values in storage.all().values():
-                my_list.append(values)
+                my_list.append(str(values))
             print(my_list)
 
     def do_show(self, arg):
