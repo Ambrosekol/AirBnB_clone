@@ -12,6 +12,7 @@ from datetime import datetime
 
 global_update = None
 
+
 class TestBaseModel(unittest.TestCase):
     """
     doc

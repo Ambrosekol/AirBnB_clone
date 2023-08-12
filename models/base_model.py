@@ -11,6 +11,7 @@ class BaseModel():
     """
     class BaseModel
     """
+
     def __init__(self, *args, **kwargs):
         """
         instantiating new obj
