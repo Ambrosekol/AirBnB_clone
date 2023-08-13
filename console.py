@@ -33,6 +33,27 @@ class HBNBCommand(cmd.Cmd):
         """
         return True
 
+    def precmd(self, arg):
+        """
+        doc
+        """
+        if not arg:
+            pass
+        else:
+            if arg.split()[0] in ("update", "count", "all", "create",
+                                  "show", "destroy", "count"):
+                return arg
+            else:
+                myclass = arg.split(".")[0]
+                try:
+                    mycmd = arg.split(".")[1].strip(")")
+                    mycmd = mycmd.strip("(")
+                    return " ".join([mycmd, myclass])
+                except IndexError:
+                    pass
+                return myclass
+        return arg
+
     def emptyline(self):
         """
         doc
