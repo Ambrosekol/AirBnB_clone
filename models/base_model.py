@@ -40,6 +40,7 @@ class BaseModel():
         update the updated_at attribute
         to the last time the obj was saved
         """
+        storage.save()
         self.updated_at = datetime.now()
 
     def to_dict(self):
