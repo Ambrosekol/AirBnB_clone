@@ -54,6 +54,18 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
+    def do_count(self, arg):
+        """
+        counting the
+        the number if instance
+        of a particular class
+        """
+        count = 0
+        for k in storage.all().keys():
+            if arg == k.split(".")[0]:
+                count += 1
+        print(count)
+
     def do_all(self, arg):
         """
         show all objects created if used with no
@@ -117,7 +129,7 @@ class HBNBCommand(cmd.Cmd):
             if args[0] in HBNBCommand.classes:
                 key = args[0] + "." + args[1]
                 if key in storage.all():
-                    del(storage.all()[key])
+                    storage.destroy(key)
                 else:
                     print("** no instance found **")
             else:
