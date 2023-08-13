@@ -44,12 +44,11 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(new_instance.__str__(), str)
 
     def test_save_method(self):
-        new_instance = BaseModel()
-        time_created = new_instance.updated_at[:20]
-        self.assertEqual(time_created, str(datetime.now().isoformat())[:20])
-        new_instance.save()
-        update_time = new_instance.updated_at[:20]
-        self.assertEqual(update_time, str(datetime.now().isoformat())[:20])
+        instance = BaseModel()
+        time = instance.created_at
+        self.assertEqual(time, instance.updated_at)
+        instance.save()
+        self.assertNotEqual(time, instance.updated_at)
 
     def test_init_with_kwargs(self):
         test_uuid = "{}".format(generate_id.uuid4())
@@ -70,3 +69,7 @@ class TestBaseModel(unittest.TestCase):
         instance = BaseModel(None)
         attributes = ["id", "created_at", "updated_at", "to_dict", "save"]
         self.assertTrue(all(hasattr(instance, attr) for attr in attributes))
+
+
+if __name__ == "__main__":
+    unittest.main()
