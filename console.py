@@ -33,7 +33,7 @@ class HBNBCommand(cmd.Cmd):
         """
         return True
 
-    def do_emptyline(self, arg):
+    def emptyline(self):
         """
         doc
         """
